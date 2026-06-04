@@ -1,0 +1,9 @@
+data/
+
+*.csv
+*.parquet
+*.h5
+*.pkl
+*.joblib
+*.npy
+*.bin
