@@ -40,18 +40,18 @@ User ID
 
 ---
 
-## Real-world Applicability (Zomato / Food-tech context)
+## Real-world Applicability
 
-Although trained on electronics data, the architecture maps directly to restaurant recommendation:
+The architecture is domain-agnostic — it generalizes to any product with implicit user-item interactions and item metadata (e-commerce, streaming, food delivery, job boards, marketplaces):
 
-| This project | Zomato equivalent |
+| This project | Any recommendation domain |
 |---|---|
-| User reviews (ratings) | Order history |
-| Product ASINs | Restaurant IDs |
-| Product embeddings (title + description) | Restaurant embeddings (cuisine + menu + tags) |
-| ALS collaborative signals | "Users who order from X also order from Y" |
-| FAISS content expansion | Semantically similar cuisines / dishes |
-| Cold-start fallback | New-user onboarding (trending restaurants) |
+| User reviews (ratings) | Purchases, orders, clicks, watch time — any implicit signal |
+| Product ASINs (IDs) | Items, listings, restaurants, titles, jobs |
+| Product embeddings (title + description) | Item embeddings from any text/tag metadata |
+| ALS collaborative signals | "Users who engaged with X also engaged with Y" |
+| FAISS content expansion | Semantically similar items, at scale |
+| Cold-start fallback | New-user onboarding via trending/popular items |
 
 ---
 
