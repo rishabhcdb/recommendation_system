@@ -1,0 +1,28 @@
+# ─────────────────────────────────────────────────────────
+# Hybrid Recommender – Python dependencies
+# ─────────────────────────────────────────────────────────
+
+# API
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+pydantic==2.8.2
+
+# Data
+pandas==2.2.2
+numpy==1.26.4
+pyarrow==17.0.0          # parquet I/O
+
+# Collaborative filtering
+implicit==0.7.2
+scipy==1.14.0
+
+# Content-based / embeddings
+sentence-transformers==3.1.0
+scikit-learn==1.5.1
+
+# Vector search
+faiss-cpu==1.8.0          # swap for faiss-gpu on a GPU host
+
+# Utilities
+tqdm==4.66.5
+PyYAML==6.0.2

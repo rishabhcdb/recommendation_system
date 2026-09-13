@@ -1,5 +1,5 @@
+# ── Data & model artifacts ────────────────────
 data/
-
 *.csv
 *.parquet
 *.h5
@@ -7,3 +7,32 @@ data/
 *.joblib
 *.npy
 *.bin
+
+# ── Python ────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ── Virtual environments ──────────────────────
+.venv/
+venv/
+env/
+.env
+
+# ── Jupyter ───────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ── OS ────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── IDE ───────────────────────────────────────
+.idea/
+.vscode/
+*.swp

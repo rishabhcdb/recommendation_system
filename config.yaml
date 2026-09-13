@@ -1,0 +1,61 @@
+# ─────────────────────────────────────────────
+# Hybrid Recommender – Central Configuration
+# ─────────────────────────────────────────────
+
+# ── Data paths (relative to project root) ────
+data:
+  reviews:        data/reviews/Elec_5C.parquet
+  interactions:   data/interactions.parquet
+  train:          data/train.parquet
+  test:           data/test.parquet
+  train_cf:       data/train_cf.parquet
+  product_stats:  data/product_stats.parquet
+  metadata:       data/metadata/metadata_filtered.parquet
+  catalog:        data/catalog.parquet
+  embeddings:     data/product_embeddings.npy
+  faiss_index:    data/faiss_index.bin
+  als_model:      data/als_model.pkl
+
+# ── Feature engineering ───────────────────────
+features:
+  # Minimum rating considered a positive interaction
+  positive_rating_threshold: 4
+  # Sentence-Transformer model for product text embeddings
+  embedding_model: "all-MiniLM-L6-v2"
+  # Maximum characters fed per product text (avoid very long docs)
+  max_text_chars: 2000
+  embedding_batch_size: 128
+
+# ── ALS model ─────────────────────────────────
+als:
+  factors: 64
+  regularization: 0.01
+  iterations: 20
+  random_state: 42
+
+# ── FAISS index ───────────────────────────────
+faiss:
+  # IndexFlatIP = exact inner-product (cosine when embeddings are normalized)
+  index_type: "IndexFlatIP"
+
+# ── Hybrid scoring weights (must sum to 1.0) ──
+hybrid:
+  weight_als:        0.6
+  weight_content:    0.3
+  weight_popularity: 0.1
+  # Candidates fetched from ALS before content expansion
+  als_candidates:    20
+  # Content neighbours fetched per ALS candidate
+  content_neighbors: 5
+
+# ── Evaluation ────────────────────────────────
+evaluation:
+  k: 10
+  sample_size: 1000
+  seeds: [42, 123, 999]
+
+# ── API ───────────────────────────────────────
+api:
+  host: "0.0.0.0"
+  port: 8000
+  top_k: 10
